@@ -37,7 +37,7 @@ public class cloudCortina extends cloud{
     public String getHeaders(){
         String header = "";
         for(List<Cortina> c:cortinas){
-            header += "R"+String.valueOf(c.get(-1))+"\t";
+            header += "RS"+String.valueOf(c.get(-1))+"\t";
         }
         return header;
     }

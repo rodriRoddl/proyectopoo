@@ -22,6 +22,7 @@ public class Operador {
             cloudLamp lamps = new cloudLamp(data.get(0).get(1));
             cortinas.getCortinas(data.get(1));
             lamps.getLamps(data.get(2));
+            System.out.println("Time[s]\t"+cortinas.getHeaders()+lamps.getHeaders());
             for(int it = 5;it<data.size()-it;it++){
                 int commandTime = Integer.parseInt(data.get(it).get(0));
                 while(time<commandTime){

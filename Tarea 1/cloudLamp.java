@@ -9,9 +9,6 @@ public class cloudLamp extends cloud{
         super(i);
     }
     //metodos
-    public int getCanal(){
-        return chan;
-    }
     public void getLamps(List<String> list){
         int it = 0;
         while(it < getCant()){
@@ -22,6 +19,7 @@ public class cloudLamp extends cloud{
             it++;
         }
     }
+    
     public String getHeaders(){
         String header = "";
         for(List<Lamp> lamp: lamparas){
