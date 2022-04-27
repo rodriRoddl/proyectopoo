@@ -16,18 +16,20 @@ public class Operador {
             }
             iter++;
         }
-        cloudCortina cortinas    = new cloudCortina(data.get(0).get(0));
-        cloudLamp lamps = new cloudLamp(data.get(0).get(1));
-        cortinas.getCortinas(data.get(1));
-        lamps.getLamps(data.get(2));
-        for(int it = 5;it<data.size()-it;it++){
-            int commandTime = Integer.parseInt(data.get(it).get(0));
-            while(time<commandTime){
-                
-                time+=delta;
+    }
+        public void ExecuteCommands(){
+            cloudCortina cortinas = new cloudCortina(data.get(0).get(0));
+            cloudLamp lamps = new cloudLamp(data.get(0).get(1));
+            cortinas.getCortinas(data.get(1));
+            lamps.getLamps(data.get(2));
+            for(int it = 5;it<data.size()-it;it++){
+                int commandTime = Integer.parseInt(data.get(it).get(0));
+                while(time<commandTime){
+                    
+                    time+=delta;
+                }
             }
         }
-    }
     public void getList(){System.out.println(data);}  //esto retorna la lista de listas del txt.
     private List<List<String>> data;
     private double time = 0.0;
