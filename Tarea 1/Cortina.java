@@ -23,7 +23,7 @@ public class Cortina {
     public double rollUp(double delta){
         newLength = length - (delta*vel*radio);
         if(newLength < 0){
-            newLength = 0.0;
+            newLength = 0.00;
         }
         return newLength;
     }

@@ -18,7 +18,6 @@ public class Operador {
             }
             iter++;
         }
-        System.out.println(data);
     }
         public void ExecuteCommands(){
             cloudCortina cortinas = new cloudCortina(data.get(0).get(0)); // guardamos el cloud de cortinas
@@ -32,39 +31,39 @@ public class Operador {
                 LampControl c = new LampControl(data.get(4).get(i),lamps);
                 ctrleslamp.add(c);                                               //en este operador se guardan
             }
+
             cant_ctrlesCort = Integer.parseInt(data.get(0).get(2));         //hacemos lo mismo de arriba pero ahora con los controles de cortina
             ctrlesCort = new ArrayList<CortinaControl>();
             for(int i=0;i<cant_ctrlesCort;i++){
                 CortinaControl cc = new CortinaControl(data.get(3).get(i),cortinas);
                 ctrlesCort.add(cc);
             }
-
             System.out.println("Time[s]\t"+ cortinas.getHeaders() + lamps.getHeaders() ); //empezamos a imprimir la cabecera de salida
-            
+
             for(int it=5;it<data.size()-1;it++){                                            //recorremos las acciones
                 int commandTime = Integer.parseInt(data.get(it).get(0));
                 Action accion = new Action(data.get(it));
 
-                while(time<commandTime){                                                     //este ciclo nos sirve para entregar los estados cada 0.1 seg. de cada objeto
-                    if(accion.getClase() == "L"){                                           //vemos si la accion corresponde a L de lamparas para accionarla.
-                        for(int k=0;k<cant_ctrleslamp;k++){
-                            if( (ctrleslamp.get(k)).getChannel() == accion.getCanal() ){
-                                if(ctrleslamp.get(k).getStateLamp() == 0){
-                                    ctrleslamp.get(k).pressPower();
+                while(time <= commandTime){                                                     //este ciclo nos sirve para entregar los estados cada 0.1 seg. de cada objeto
+                    if(accion.getClase().equals("L")){       
+                        for(LampControl lc : ctrleslamp){
+                            if(lc.getChannel() == accion.getCanal()){
+                                if(lc.getStateLamp() == "0"){
+                                    lc.pressPower();
                                 }
-                                ctrleslamp.get(k).controlarLamp(accion);
-                            }
-                        }
-                    }
-                    else if(accion.getClase() == "C"){                                     //se ve si la accion corresponde a C de cortinas para accionar.
-                        for(int i=0;i<cant_ctrlesCort;i++){
-                            if(ctrlesCort.get(i).getChannel() == accion.getCanal()){
-                                ctrlesCort.get(i).conectAction(accion,delta);
-                            }
+                                lc.controlarLamp(accion);
+                            };
+                        }                                    //vemos si la accion corresponde a L de lamparas para accionarla.
 
+                    }
+                    else if(accion.getClase().equals("C")){                                     //se ve si la accion corresponde a C de cortinas para accionar.
+                        for(CortinaControl cc: ctrlesCort){
+                            if(cc.getChannel() == accion.getCanal()){
+                                cc.conectAction(accion, delta);
+                            }
                         }
                     }
-                    System.out.println(String.format("%.1f",time)+cortinas.estado());
+                    System.out.print(String.format("%.1f",time)+"\t"+cortinas.getStatus()+lamps.getStatus()+"\n");
                     time+=delta;                                                
                 }
             }
@@ -75,6 +74,6 @@ public class Operador {
     private List<LampControl> ctrleslamp;
     private List<CortinaControl> ctrlesCort;
     private int cant_ctrleslamp, cant_ctrlesCort;
-    private double time = 0.0;
+    private double time;
     private final double delta = 0.1;
 }

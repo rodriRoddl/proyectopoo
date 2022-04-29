@@ -23,7 +23,7 @@ public class cloudLamp extends cloud{
     public String getHeaders(){
         String header = "";
         for(Lamp lamp: lamparas){
-            header += "LL"+String.valueOf(lamp.getId())+"\t";
+            header += "LL"+String.valueOf(lamp.getId())+"\t"+"R"+String.valueOf(lamp.getId())+"\t"+"G"+String.valueOf(lamp.getId())+"\t"+"B"+String.valueOf(lamp.getId())+"\t";
         }
         return header;
     }
@@ -44,15 +44,12 @@ public class cloudLamp extends cloud{
         }
     }
 
-    public int estadoLamp(int canal){
+    public String getStatus(){
+        String Status = "";
         for(Lamp la: lamparas){
-            if(la.getChannel() == canal){
-                List<Integer> estado = new ArrayList<Integer>();
-                estado = la.getState();
-                return estado.get(0);
-            }
+            Status += la.getState()+"\t";
         }
-        return(-1);
+        return Status;
     }
 
     //atributos

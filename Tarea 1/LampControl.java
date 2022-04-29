@@ -10,8 +10,8 @@ public class LampControl {
     public void controlarLamp(Action a){
         cloud.conectarNube(channel, a);
     }
-    public int getStateLamp(){
-        return(cloud.estadoLamp(channel));
+    public String getStateLamp(){
+        return(cloud.getStatus());
     }
     private int channel;
     private cloudLamp cloud;

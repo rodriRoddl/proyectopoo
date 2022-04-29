@@ -4,7 +4,7 @@ public class Action{
     //constructor
     public  Action(List<String> accionesList){
     time = Integer.parseInt(accionesList.get(0));
-    clase = accionesList.get(1); // if(clase == "L"{ lamp l = new lamp(command)}) dentro de class lamp (if(command == "B", this.RollDown() ))
+    clase = (accionesList.get(1)); // if(clase == "L"{ lamp l = new lamp(command)}) dentro de class lamp (if(command == "B", this.RollDown() ))
     channel = Integer.parseInt(accionesList.get(2));
     command = accionesList.get(3);
     if(accionesList.size() == 5){
@@ -20,7 +20,7 @@ public class Action{
 
     public String getUpDown(){return upDown;}
 
-    public String getClase(){return clase;}
+    public String getClase(){ return clase;}
     //atributos
     
     private int time;
