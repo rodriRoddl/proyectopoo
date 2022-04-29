@@ -7,43 +7,42 @@ public class Cortina {
         length = largo;
     }
     //Metodos
-    public void applyAction(Action a){
+    public void applyAction(Action a,double delta){
         String command = a.getCommand();
         if(command == "U"){
-            this.rollUp();
+            this.rollUp(delta);
         }
         else if(command == "D"){
-            this.rollDown();
+            this.rollDown(delta);
         }
         else if(command == "S"){
-            this.rollStop();
+            this.rollStop(delta);
         }
     }    
 
-    public double rollUp(){
-        double time = 2* Math.PI*(vel);
-        newLength = length - (time*vel*radio);
+    public double rollUp(double delta){
+        newLength = length - (delta*vel*radio);
         if(newLength < 0){
             newLength = 0.0;
         }
         return newLength;
     }
-    public double rollDown(){
-        double time = 2* Math.PI*(vel);
-        newLength = length - (time*vel*radio);
+    public double rollDown(double delta){
+        newLength = length + (delta*vel*radio);
         if(newLength > length){
             newLength = length;
         }
         return newLength;
     }
 
-    public double rollStop(){
+    public double rollStop(double delta){
         return newLength;
     }
-    public String percentLength(double newLength){
+    public String percentLength(){
         String percent = String.valueOf(Math.round(newLength/length)*100);
         return percent;
     }
+
     public int getCanal(){return canal;}
 
     public int getId(){return ident;}

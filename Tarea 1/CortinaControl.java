@@ -7,8 +7,8 @@ public class CortinaControl{
     //metodos
     public int getChannel(){return channel;}
 
-    public void conectAction(Action a){
-        cloud.startAction(channel, a);
+    public void conectAction(Action a,double delta){
+        cloud.startAction(channel, a, delta);
     }
     //atributos
     private int channel;
