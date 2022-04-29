@@ -12,7 +12,9 @@ public class Operador {
             String[] split = linea.split("\t");
             data.add(new ArrayList<String>());
             for(String a: split){
+                if(a != ":"){
                 data.get(iter).add(a);
+                }
             }
             iter++;
         }
@@ -22,17 +24,44 @@ public class Operador {
             cloudLamp lamps = new cloudLamp(data.get(0).get(1));
             cortinas.getCortinas(data.get(1));
             lamps.getLamps(data.get(2));
-            System.out.println("Time[s]\t"+cortinas.getHeaders()+lamps.getHeaders());
-            for(int it = 5;it<data.size()-it;it++){
+
+            cant_ctrleslamp = Integer.parseInt(data.get(0).get(3));
+            ctrleslamp = new ArrayList<LampControl>();
+            for(int i=0;i<cant_ctrleslamp;i++){
+                LampControl c = new LampControl(data.get(4).get(i),lamps);
+                ctrleslamp.add(c);
+            }
+
+            System.out.println("Time[s]\t"+ cortinas.getHeaders() + lamps.getHeaders() );
+            
+            for(int it=6;it<data.size()-1;it++){
                 int commandTime = Integer.parseInt(data.get(it).get(0));
+                Action accion = new Action(data.get(it-1));
+
                 while(time<commandTime){
-                    
+                    if(accion.getClase() == "L"){
+                        for(int k=0;k<cant_ctrleslamp;k++){
+                            if( (ctrleslamp.get(k)).getChannel() == accion.getCanal() ){
+                                if(ctrleslamp.get(k).getStateLamp() == 0){
+                                    ctrleslamp.get(k).pressPower();
+                                }
+                                ctrleslamp.get(k).controlarLamp(accion);
+                            }
+                        }
+                    }
+                    //else if(accion.getClase() == "C"){
+                    //    acciones para cortina
+        
                     time+=delta;
                 }
+
             }
         }
     public void getList(){System.out.println(data);}  //esto retorna la lista de listas del txt.
+    
     private List<List<String>> data;
+    private List<LampControl> ctrleslamp;
+    private int cant_ctrleslamp;
     private double time = 0.0;
     private final double delta = 0.1;
 }

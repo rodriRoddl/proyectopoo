@@ -9,22 +9,26 @@ public class cloudCortina extends cloud{
 
         }
     //metodos
-    public int getCanal(){ 
-        return (int) chan;
-    }
-    
     public void getCortinas(List<String> list){
         int it = 0;
         while(it < getCant()){
-            vel = Double.parseDouble(list.get(0+(3*it)));
-            len = Double.parseDouble(list.get(1+(3*it)));
-            chan = Integer.parseInt(list.get(2+(3*it)));
+            double vel = Double.parseDouble(list.get(0+(3*it)));
+            double len = Double.parseDouble(list.get(1+(3*it)));
+            int chan = Integer.parseInt(list.get(2+(3*it)));
             Cortina cort = new Cortina(vel,len,chan,it);
-            cortinas.add(new ArrayList<Cortina>());
-            cortinas.get(it).add(cort);
+            cortinas.add(cort);
             it++;
         }
     }
+
+    public String getHeaders(){
+        String header = "";
+        for(Cortina c : cortinas){
+            header += "RS"+String.valueOf(c.getId())+"\t";
+        }
+        return header;
+    }
+
     public void startUp(int channel){
 
     }
@@ -34,16 +38,6 @@ public class cloudCortina extends cloud{
     public void stopMove(int channel){
 
     }
-    public String getHeaders(){
-        String header = "";
-        for(List<Cortina> c:cortinas){
-            header += "RS"+String.valueOf(c.get(-1))+"\t";
-        }
-        return header;
-    }
     //atributos
-    private double vel;
-    private double len;
-    private int chan;
-    private List<List<Cortina>> cortinas = new ArrayList<List<Cortina>>();
+    private List<Cortina> cortinas = new ArrayList<Cortina>();
 }

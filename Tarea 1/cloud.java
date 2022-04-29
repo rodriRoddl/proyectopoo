@@ -1,6 +1,6 @@
 public class cloud {
     //constructor 
-    public cloud( String i){
+    public cloud(String i){
         this.cantidad_objetos = Integer.parseInt(i);
     }
 

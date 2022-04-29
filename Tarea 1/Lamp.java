@@ -1,15 +1,16 @@
- import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Lamp{
 
 	//constructor
 	public Lamp(int chan,int id){
+		ident = id;
 		canal = chan;
 		estado = "off";
-		red = 255;
-		green = 255;
-		blue = 255;
+		red = 0;
+		green = 0;
+		blue = 0;
 	}
 
 	//metodos
@@ -30,6 +31,14 @@ public class Lamp{
 	}
 
 	public int getChannel(){return canal;}
+	public int getId(){return ident;}
+
+	public void powerOn(){
+		estado = "on";
+		red = 255;
+		green = 255;
+		blue = 255;
+	}
 
 	public void applyAction(Action a){
 		String color = a.getCommand();
@@ -61,6 +70,7 @@ public class Lamp{
 	}
 
 	//atributos
+	private int ident;
 	private int canal;
 	private String estado;
 	private int red;

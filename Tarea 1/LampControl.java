@@ -1,12 +1,18 @@
 public class LampControl {
-    public LampControl(String canal,cloudCortina c){
+    public LampControl(String canal,cloudLamp a){
         channel = Integer.parseInt(canal);
-        cortina = c;
+        lampara = a;
     }
     public int getChannel(){return channel;}
-    public void PowerState(){
-        
+    public void pressPower(){
+        lampara.changeLampPowerState(channel);
+    }
+    public void controlarLamp(Action a){
+        lampara.conectarNube(channel, a);
+    }
+    public int getStateLamp(){
+        return(lampara.estadoLamp(channel));
     }
     private int channel;
-    private cloudCortina cortina;
+    private cloudLamp lampara;
 }

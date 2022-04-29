@@ -1,6 +1,7 @@
 public class Cortina {
     //Constructor
     public Cortina(Double alfa, Double largo, int chan, int id){
+        ident = id;
         canal = chan;
         vel = alfa;
         length = largo;
@@ -44,7 +45,11 @@ public class Cortina {
         return percent;
     }
     public int getCanal(){return canal;}
-    //Atributos
+
+    public int getId(){return ident;}
+
+    //Atributos}
+    private int ident;
     private int canal;
     private double vel;
     private double length;
