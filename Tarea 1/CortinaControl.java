@@ -1,20 +1,22 @@
 public class CortinaControl{
-    //falta programar para los estados de la cortina
+    //Constructor
     public CortinaControl(String canal,cloudCortina a){
         channel = Integer.parseInt(canal);
-        //cortina = a;
+        cloud = a;
     }
+    //metodos
     public int getChannel(){return channel;}
-    public void pressPower(){
-    //    cortina.changeLampPowerState(channel);
+
+    public void startUp(){
+       cloud.startUp(channel);
     }
-    public void controlarLamp(Action a){
-    //    cortina.conectarNube(channel, a);
+    public void startDown(){
+        cloud.startDown(channel);
     }
-    public int getStateLamp(){
-    //    return(cortina.estadoLamp(channel));
-    return 0;
+    public void stopMove(){
+        cloud.stopMove(channel);
     }
+    //atributos
     private int channel;
-    //private cloudCortina cortina;
+    private cloudCortina cloud;
 }

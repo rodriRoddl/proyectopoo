@@ -21,6 +21,16 @@ public class cloudCortina extends cloud{
         }
     }
 
+    public void startUp(int channel){
+        
+    }
+    public void startDown(int channel){
+
+    }
+    public void stopMove(int channel){
+
+    }
+
     public String getHeaders(){
         String header = "";
         for(Cortina c : cortinas){
@@ -29,15 +39,6 @@ public class cloudCortina extends cloud{
         return header;
     }
 
-    public void startUp(int channel){
-
-    }
-    public void startDown(int channel){
-
-    }
-    public void stopMove(int channel){
-
-    }
     //atributos
     private List<Cortina> cortinas = new ArrayList<Cortina>();
 }
