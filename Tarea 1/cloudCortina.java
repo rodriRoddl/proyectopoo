@@ -21,15 +21,14 @@ public class cloudCortina extends cloud{
         }
     }
 
-    public void startUp(int channel){
-        
+    public void startAction(int channel,Action action){
+        for(Cortina cort : cortinas){
+            if(cort.getCanal() == channel){
+                cort.applyAction(action);
+            }
+        }
     }
-    public void startDown(int channel){
 
-    }
-    public void stopMove(int channel){
-
-    }
 
     public String getHeaders(){
         String header = "";

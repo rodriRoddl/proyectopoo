@@ -29,40 +29,28 @@ public class cloudLamp extends cloud{
     }
 
     public void changeLampPowerState(int canal){
-        int cont = 0;
-        while(cont < lamparas.size()){
-            if( (lamparas.get(cont)).getChannel() == canal ){
-                int j;
-                for(j=0;j<lamparas.size();j++){
-                    lamparas.get(j).powerOn();
-                }
+        for(Lamp l:lamparas){
+            if(l.getChannel() == canal){
+                l.powerOn();
             }
-            cont++;
         }
     }
 
     public void conectarNube(int canal, Action act){
-        int cont = 0;
-        while(cont < lamparas.size()){
-            if( (lamparas.get(cont)).getChannel() == canal ){
-                int j;
-                for(j=0;j<lamparas.size();j++){
-                    (lamparas.get(j)).applyAction(act);
-                }
+        for(Lamp la: lamparas){
+            if(la.getChannel() == canal){
+                la.applyAction(act);
             }
-            cont++;
         }
     }
 
     public int estadoLamp(int canal){
-        int cont = 0;
-        while(cont < lamparas.size()){
-            if( lamparas.get(cont).getChannel() == canal ){
+        for(Lamp la: lamparas){
+            if(la.getChannel() == canal){
                 List<Integer> estado = new ArrayList<Integer>();
-                estado = lamparas.get(cont).getState();
-                return(estado.get(0));
+                estado = la.getState();
+                return estado.get(0);
             }
-            cont++;
         }
         return(-1);
     }

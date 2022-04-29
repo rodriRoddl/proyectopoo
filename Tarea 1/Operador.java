@@ -55,21 +55,16 @@ public class Operador {
                             }
                         }
                     }
-                    /*else if(accion.getClase() == "C"){
+                    else if(accion.getClase() == "C"){
                         for(int i=0;i<cant_ctrlesCort;i++){
                             if(ctrlesCort.get(i).getChannel() == accion.getCanal()){
-                                if(ctrleslamp.get(k).getStateCort() == 0){
-                                    ctresCort.get(k).
-                                }
+                                ctrlesCort.get(i).conectAction(accion);
                             }
+                            
                         }
-
-
                     }
-                    */
-                    time+=delta;
                 }
-                
+                time+=delta;
             }
         }
     public void getList(){System.out.println(data);}  //esto retorna la lista de listas del txt.

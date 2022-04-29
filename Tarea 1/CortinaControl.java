@@ -7,14 +7,8 @@ public class CortinaControl{
     //metodos
     public int getChannel(){return channel;}
 
-    public void startUp(){
-       cloud.startUp(channel);
-    }
-    public void startDown(){
-        cloud.startDown(channel);
-    }
-    public void stopMove(){
-        cloud.stopMove(channel);
+    public void conectAction(Action a){
+        cloud.startAction(channel, a);
     }
     //atributos
     private int channel;
