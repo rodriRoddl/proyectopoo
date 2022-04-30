@@ -23,7 +23,7 @@ public class cloudLamp extends cloud{
     public String getHeaders(){
         String header = "";
         for(Lamp lamp: lamparas){
-            header += "LL"+String.valueOf(lamp.getId())+"\t"+"R"+String.valueOf(lamp.getId())+"\t"+"G"+String.valueOf(lamp.getId())+"\t"+"B"+String.valueOf(lamp.getId())+"\t";
+            header += "RL_"+String.valueOf(lamp.getId())+"\t"+"GL_"+String.valueOf(lamp.getId())+"\t"+"BL_"+String.valueOf(lamp.getId())+"\t";
         }
         return header;
     }

@@ -44,7 +44,7 @@ public class Operador {
                 int commandTime = Integer.parseInt(data.get(it).get(0));
                 Action accion = new Action(data.get(it));
 
-                while(time <= commandTime){                                                     //este ciclo nos sirve para entregar los estados cada 0.1 seg. de cada objeto
+                while(time < commandTime){                                                     //este ciclo nos sirve para entregar los estados cada 0.1 seg. de cada objeto
                     if(accion.getClase().equals("L")){       
                         for(LampControl lc : ctrleslamp){
                             if(lc.getChannel() == accion.getCanal()){
@@ -74,6 +74,6 @@ public class Operador {
     private List<LampControl> ctrleslamp;
     private List<CortinaControl> ctrlesCort;
     private int cant_ctrleslamp, cant_ctrlesCort;
-    private double time;
+    private double time=0;
     private final double delta = 0.1;
 }

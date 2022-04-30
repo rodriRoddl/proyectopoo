@@ -4,42 +4,45 @@ public class Cortina {
         ident = id;
         canal = chan;
         vel = alfa;
-        length = largo;
+        maxLength = largo;
     }
     //Metodos
     public void applyAction(Action a,double delta){
         String command = a.getCommand();
-        if(command == "U"){
+        if(command.equals("U")){
             this.rollUp(delta);
         }
-        else if(command == "D"){
+        else if(command.equals("D")){
             this.rollDown(delta);
         }
-        else if(command == "S"){
+        else if(command.equals("S")){
             this.rollStop(delta);
         }
-    }    
-
-    public double rollUp(double delta){
-        newLength = length - (delta*vel*radio);
-        if(newLength < 0){
-            newLength = 0.00;
+        else{
+            System.out.println("comando no reconocido, no se puede seguir con el programa");
+            System.exit(-1);
         }
-        return newLength;
+    }   
+    public double rollUp(double delta){
+        length -= (delta*vel*radio);
+        if(length < 0){
+            length = 0.00;
+        }
+        return length;
     }
     public double rollDown(double delta){
-        newLength = length + (delta*vel*radio);
-        if(newLength > length){
-            newLength = length;
+        length += (delta*vel*radio);
+        if(length > maxLength){
+            length = maxLength;
         }
-        return newLength;
+        return length;
     }
 
     public double rollStop(double delta){
-        return newLength;
+        return length;
     }
     public String percentLength(){
-        String percent = String.valueOf(Math.round(newLength/length)*100);
+        String percent = String.valueOf(Math.round(length/maxLength)*100);
         return percent;
     }
 
@@ -47,11 +50,11 @@ public class Cortina {
 
     public int getId(){return ident;}
 
-    //Atributos}
+    //Atributos
     private int ident;
     private int canal;
     private double vel;
     private double length;
-    private double newLength;
+    private final double maxLength;
     private static double radio = 0.04;
 }
