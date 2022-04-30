@@ -36,10 +36,10 @@ public class cloudLamp extends cloud{
         }
     }
 
-    public void conectarNube(int canal, Action act){
+    public void conectarNube(int canal, Action act,double delta){
         for(Lamp la: lamparas){
             if(la.getChannel() == canal){
-                la.applyAction(act);
+                la.applyAction(act,delta);
             }
         }
     }

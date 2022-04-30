@@ -28,10 +28,11 @@ public class cloudCortina extends cloud{
             }
         }
     }
+    
     public String getStatus(){
         String Status = "";
         for(Cortina cort: cortinas){
-            Status += cort.percentLength()+"\t";
+            Status += cort.getState()+"\t";
         }
         return Status;
     }

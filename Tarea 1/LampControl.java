@@ -7,8 +7,8 @@ public class LampControl {
     public void pressPower(){
         cloud.changeLampPowerState(channel);
     }
-    public void controlarLamp(Action a){
-        cloud.conectarNube(channel, a);
+    public void controlarLamp(Action a,double delta){
+        cloud.conectarNube(channel, a, delta);
     }
     public String getStateLamp(){
         return(cloud.getStatus());

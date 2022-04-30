@@ -5,43 +5,38 @@ public class Cortina {
         canal = chan;
         vel = alfa;
         maxLength = largo;
+        length = maxLength;
     }
     //Metodos
-    public void applyAction(Action a,double delta){
-        String command = a.getCommand();
-        if(command.equals("U")){
-            this.rollUp(delta);
-        }
-        else if(command.equals("D")){
-            this.rollDown(delta);
-        }
-        else if(command.equals("S")){
-            this.rollStop(delta);
-        }
-        else{
-            System.out.println("comando no reconocido, no se puede seguir con el programa");
-            System.exit(-1);
-        }
+    public void applyAction(Action a,double delta){ //carga estado subiendo o bajando o nada
+            String command = a.getCommand();
+            if(command.equals("U")){
+                length -= this.increment(delta);
+                if(length < 0){
+                    length = 0.0;
+                }
+            }
+            else if(command.equals("D")){
+                length += this.increment(delta);
+                if(length > maxLength){
+                    length = maxLength;
+                }
+            }
+            else if(command.equals("S")){
+            }
+            else{
+                System.out.println("comando no reconocido, no se puede seguir con el programa");
+                System.exit(-1);
+            }
     }   
-    public double rollUp(double delta){
-        length -= (delta*vel*radio);
-        if(length < 0){
-            length = 0.00;
-        }
-        return length;
+    public void UpdateState(){
+        
     }
-    public double rollDown(double delta){
-        length += (delta*vel*radio);
-        if(length > maxLength){
-            length = maxLength;
-        }
-        return length;
+    public double increment(double delta){
+        double increment = delta*vel*radio;
+        return increment;
     }
-
-    public double rollStop(double delta){
-        return length;
-    }
-    public String percentLength(){
+    public String getState(){
         String percent = String.valueOf(Math.round(length/maxLength)*100);
         return percent;
     }
@@ -54,7 +49,7 @@ public class Cortina {
     private int ident;
     private int canal;
     private double vel;
-    private double length;
     private final double maxLength;
+    private double length;
     private static double radio = 0.04;
 }

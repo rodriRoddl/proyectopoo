@@ -43,28 +43,30 @@ public class Operador {
             for(int it=5;it<data.size()-1;it++){                                            //recorremos las acciones
                 int commandTime = Integer.parseInt(data.get(it).get(0));
                 Action accion = new Action(data.get(it));
-
-                while(time < commandTime){                                                     //este ciclo nos sirve para entregar los estados cada 0.1 seg. de cada objeto
-                    if(accion.getClase().equals("L")){       
+                System.out.print(String.format("%.1f",time)+"\t"+cortinas.getStatus()+lamps.getStatus()+"\n");
+                while(time <= commandTime){                                  //este ciclo nos sirve para entregar los estados cada 0.1 seg. de cada objeto  
+                    if(accion.getClase().equals("L")){       //vemos si la accion corresponde a L de lamparas para accionarla.
                         for(LampControl lc : ctrleslamp){
                             if(lc.getChannel() == accion.getCanal()){
                                 if(lc.getStateLamp() == "0"){
                                     lc.pressPower();
                                 }
-                                lc.controlarLamp(accion);
-                            };
-                        }                                    //vemos si la accion corresponde a L de lamparas para accionarla.
+                                lc.controlarLamp(accion,delta);
+                            }
+                        }                                    
 
                     }
                     else if(accion.getClase().equals("C")){                                     //se ve si la accion corresponde a C de cortinas para accionar.
-                        for(CortinaControl cc: ctrlesCort){
+                        for(CortinaControl cc : ctrlesCort){
                             if(cc.getChannel() == accion.getCanal()){
                                 cc.conectAction(accion, delta);
                             }
                         }
                     }
+                    // que todas las cortinas se actualicen.
+                    time+=delta;
                     System.out.print(String.format("%.1f",time)+"\t"+cortinas.getStatus()+lamps.getStatus()+"\n");
-                    time+=delta;                                                
+
                 }
             }
         }
