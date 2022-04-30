@@ -20,11 +20,17 @@ public class cloudCortina extends cloud{
             it++;
         }
     }
-
     public void startAction(int channel,Action action,double delta){
         for(Cortina cort : cortinas){
             if(cort.getCanal() == channel){
                 cort.applyAction(action,delta);
+            }
+        }
+    }
+    public void saveStatus(int channel) {
+        for(Cortina c: cortinas){
+            if(c.getCanal() == channel){
+                c.UpdateState();
             }
         }
     }
@@ -46,4 +52,5 @@ public class cloudCortina extends cloud{
 
     //atributos
     private List<Cortina> cortinas = new ArrayList<Cortina>();
+
 }

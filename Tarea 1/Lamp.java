@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Lamp{
 
 	//constructor
@@ -11,10 +14,20 @@ public class Lamp{
 	}
 
 	//metodos
-	public String getState(){
-		String state = "";
-		state += (red+"\t"+green+"\t"+blue);
-		return state;
+	public List<Integer> getState(){
+		List<Integer> list = new ArrayList<Integer>();
+
+		if(estado == "on"){
+			list.add(0);
+		}
+		else if(estado == "off"){
+			list.add(1);
+		}
+		list.add(red);
+		list.add(green);
+		list.add(blue);
+
+		return list;
 	}
 
 	public int getChannel(){return canal;}

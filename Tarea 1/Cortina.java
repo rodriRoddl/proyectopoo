@@ -9,7 +9,8 @@ public class Cortina {
     }
     //Metodos
     public void applyAction(Action a,double delta){ //carga estado subiendo o bajando o nada
-            String command = a.getCommand();
+        String command = a.getCommand();
+        //while(){
             if(command.equals("U")){
                 length -= this.increment(delta);
                 if(length < 0){
@@ -28,9 +29,10 @@ public class Cortina {
                 System.out.println("comando no reconocido, no se puede seguir con el programa");
                 System.exit(-1);
             }
+        //}
     }   
-    public void UpdateState(){
-        
+    public String UpdateState(){
+        return "none";
     }
     public double increment(double delta){
         double increment = delta*vel*radio;

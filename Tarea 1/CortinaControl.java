@@ -10,7 +10,11 @@ public class CortinaControl{
     public void conectAction(Action a,double delta){
         cloud.startAction(channel, a, delta);
     }
+        public void saveState() {
+        cloud.saveStatus(channel);
+    }
     //atributos
     private int channel;
     private cloudCortina cloud;
+
 }

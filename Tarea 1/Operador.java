@@ -60,6 +60,7 @@ public class Operador {
                         for(CortinaControl cc : ctrlesCort){
                             if(cc.getChannel() == accion.getCanal()){
                                 cc.conectAction(accion, delta);
+                                cc.saveState();
                             }
                         }
                     }
