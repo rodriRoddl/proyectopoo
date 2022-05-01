@@ -17,7 +17,6 @@ public class cloudLamp extends cloud{
             lamparas.add(la);
             it++;
         }
-        //System.out.println( ((lamparas.get(0).get(0)).getState()).get(0) );
     }
     
     public String getHeaders(){
@@ -43,15 +42,6 @@ public class cloudLamp extends cloud{
             }
         }
     }
-
-    /*public void guardarProgreso(int canal, Action act){
-        for(Lamp la: lamparas){
-            if(la.getChannel() == canal){
-                la.leerProgreso(act);
-            }
-        }
-    }*/
-
     public String getStatus(){
         String Status = "";
         for(Lamp la: lamparas){

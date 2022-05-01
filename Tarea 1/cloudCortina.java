@@ -9,8 +9,8 @@ public class cloudCortina extends cloud{
 
         }
     //metodos
-    public void getCortinas(List<String> list){
-        int it = 0;
+    public void getCortinas(List<String> list){ //metodo para obtener la canttidad de cortinas a partir del archivo txt
+        int it = 0; 
         while(it < getCant()){
             double vel = Double.parseDouble(list.get(0+(3*it)));
             double len = Double.parseDouble(list.get(1+(3*it)));
@@ -20,14 +20,14 @@ public class cloudCortina extends cloud{
             it++;
         }
     }
-    public void startAction(int channel,double delta){
+    public void startAction(int channel,double delta){ //comienza a hacer la accion correspondiente a una cortina.
         for(Cortina cort : cortinas){
             if(cort.getCanal() == channel){
                 cort.applyAction(delta);
             }
         }
     }
-    public void saveStatus(int channel, String state) {
+    public void saveStatus(int channel, String state) { //guarda la accion que se le otorgo en la lista a traves del tiempo
         for(Cortina cort: cortinas){
             if(cort.getCanal() == channel){
                 cort.saveState(state);
@@ -35,7 +35,7 @@ public class cloudCortina extends cloud{
         }
     }
     
-    public String getStatus(){
+    public String getStatus(){ //se obtiene la variacion segun el tiempo transcurrido
         String Status = "";
         for(Cortina cort: cortinas){
             Status += String.format("%.1f",cort.getState())+"\t";

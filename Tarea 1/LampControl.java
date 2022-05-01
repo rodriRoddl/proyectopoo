@@ -13,9 +13,6 @@ public class LampControl {
     public String getStateLamp(){
         return(cloud.getStatus());
     }
-    /*public void saveState(Action a){
-        cloud.guardarProgreso(channel, a);
-    }*/
     private int channel;
     private cloudLamp cloud;
 }
