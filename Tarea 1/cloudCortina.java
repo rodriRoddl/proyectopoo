@@ -38,7 +38,7 @@ public class cloudCortina extends cloud{
     public String getStatus(){
         String Status = "";
         for(Cortina cort: cortinas){
-            Status += cort.getState()+"\t";
+            Status += String.format("%.1f",cort.getState())+"\t";
         }
         return Status;
     }

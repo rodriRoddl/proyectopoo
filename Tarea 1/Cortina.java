@@ -6,6 +6,7 @@ public class Cortina {
         canal = chan;
         vel = alfa;
         maxLength = largo;
+        length = maxLength;
     }
     //Metodos
     public void applyAction(double delta){
@@ -32,9 +33,9 @@ public class Cortina {
         double increment = (delta*vel*radio);
         return increment;
     }
-    public String getState(){
-        String percent = String.valueOf(Math.round(length/maxLength)*100);
-        return percent;
+    public float getState(){
+        float f = (float) ((length/maxLength)*100);
+        return f;
     }
 
     public int getCanal(){return canal;}
