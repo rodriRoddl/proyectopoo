@@ -30,7 +30,7 @@ public class cloudCortina extends cloud{
     public void saveStatus(int channel, String state) {
         for(Cortina cort: cortinas){
             if(cort.getCanal() == channel){
-                cort.UpdateState(state);
+                cort.saveState(state);
             }
         }
     }

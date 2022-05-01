@@ -1,3 +1,4 @@
+
 public class Cortina {
     //Constructor
     public Cortina(Double alfa, Double largo, int chan, int id){
@@ -8,32 +9,27 @@ public class Cortina {
     }
     //Metodos
     public void applyAction(double delta){
-        length = 0;
-        while(status == "U" || status == "D" || status =="S"){
-            if(status =="U"){
-                length -= this.increment(delta);
-                if(length < 0){
-                    length = 0.0;
-                }
+        if(status.equals("U")){
+            length -= this.increment(delta);
+            if(length < 0){
+                length = 0.0;
             }
-            else if(status == "D"){
-                length += this.increment(delta);
-                if(length > maxLength){
-                    length = maxLength;
-                }
+        }
+        if(status.equals("D")){
+            length += this.increment(delta);
+            if(length > maxLength){
+                length = maxLength;
             }
-            else if(status == "S"){
-                break;
-            }
-        
+        }
+        if(status.equals("S")){
         }
     }
 
-    public void UpdateState(String state){
+    public void saveState(String state){
         status = state;
     }
     public double increment(double delta){
-        double increment = delta*vel*radio;
+        double increment = (delta*vel*radio);
         return increment;
     }
     public String getState(){

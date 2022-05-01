@@ -41,7 +41,7 @@ public class Lamp{
 	}
 
 	public void applyAction(Action a){
-		String subeBaja = a.getUpDown();
+		//String subeBaja = a.getUpDown();
 			if((a.getCommand()).equals("R")){
 				if((a.getUpDown()).equals("U") && red<=255){
 					red+=5;
