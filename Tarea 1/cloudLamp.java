@@ -36,13 +36,21 @@ public class cloudLamp extends cloud{
         }
     }
 
-    public void conectarNube(int canal, Action act,double delta){
+    public void conectarNube(int canal, Action act){
         for(Lamp la: lamparas){
             if(la.getChannel() == canal){
-                la.applyAction(act,delta);
+                la.applyAction(act);
             }
         }
     }
+
+    /*public void guardarProgreso(int canal, Action act){
+        for(Lamp la: lamparas){
+            if(la.getChannel() == canal){
+                la.leerProgreso(act);
+            }
+        }
+    }*/
 
     public String getStatus(){
         String Status = "";

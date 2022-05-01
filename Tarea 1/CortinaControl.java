@@ -7,11 +7,11 @@ public class CortinaControl{
     //metodos
     public int getChannel(){return channel;}
 
-    public void conectAction(Action a,double delta){
-        cloud.startAction(channel, a, delta);
+    public void conectAction(double delta){
+        cloud.startAction(channel, delta);
     }
-        public void saveState() {
-        cloud.saveStatus(channel);
+        public void saveState(String state) {
+        cloud.saveStatus(channel,state);
     }
     //atributos
     private int channel;

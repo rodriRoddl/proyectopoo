@@ -5,35 +5,32 @@ public class Cortina {
         canal = chan;
         vel = alfa;
         maxLength = largo;
-        length = maxLength;
     }
     //Metodos
-    public void applyAction(Action a,double delta){ //carga estado subiendo o bajando o nada 
-        String command = a.getCommand();
-        //while(){
-            if(command.equals("U")){
+    public void applyAction(double delta){
+        length = 0;
+        while(status == "U" || status == "D" || status =="S"){
+            if(status =="U"){
                 length -= this.increment(delta);
                 if(length < 0){
                     length = 0.0;
                 }
             }
-            else if(command.equals("D")){
+            else if(status == "D"){
                 length += this.increment(delta);
                 if(length > maxLength){
                     length = maxLength;
                 }
             }
-            else if(command.equals("S")){
+            else if(status == "S"){
+                break;
             }
-            else{
-                System.out.println("comando no reconocido, no se puede seguir con el programa");
-                System.exit(-1);
-            }
-        //}
+        
+        }
     }
 
-    public String UpdateState(){
-        return "none";
+    public void UpdateState(String state){
+        status = state;
     }
     public double increment(double delta){
         double increment = delta*vel*radio;
@@ -49,6 +46,7 @@ public class Cortina {
     public int getId(){return ident;}
 
     //Atributos
+    private String status;
     private int ident;
     private int canal;
     private double vel;

@@ -20,17 +20,17 @@ public class cloudCortina extends cloud{
             it++;
         }
     }
-    public void startAction(int channel,Action action,double delta){
+    public void startAction(int channel,double delta){
         for(Cortina cort : cortinas){
             if(cort.getCanal() == channel){
-                cort.applyAction(action,delta);
+                cort.applyAction(delta);
             }
         }
     }
-    public void saveStatus(int channel) {
+    public void saveStatus(int channel, String state) {
         for(Cortina cort: cortinas){
             if(cort.getCanal() == channel){
-                cort.UpdateState();
+                cort.UpdateState(state);
             }
         }
     }
