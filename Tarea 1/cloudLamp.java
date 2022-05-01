@@ -47,7 +47,8 @@ public class cloudLamp extends cloud{
     public String getStatus(){
         String Status = "";
         for(Lamp la: lamparas){
-            Status += la.getState()+"\t";
+            List<Integer> lista = new ArrayList<Integer>(la.getState());
+            Status += lista.get(1)+"\t"+lista.get(2)+"\t"+lista.get(3);
         }
         return Status;
     }

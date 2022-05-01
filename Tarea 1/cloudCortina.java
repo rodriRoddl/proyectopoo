@@ -28,9 +28,9 @@ public class cloudCortina extends cloud{
         }
     }
     public void saveStatus(int channel) {
-        for(Cortina c: cortinas){
-            if(c.getCanal() == channel){
-                c.UpdateState();
+        for(Cortina cort: cortinas){
+            if(cort.getCanal() == channel){
+                cort.UpdateState();
             }
         }
     }

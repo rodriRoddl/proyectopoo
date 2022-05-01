@@ -8,7 +8,7 @@ public class Cortina {
         length = maxLength;
     }
     //Metodos
-    public void applyAction(Action a,double delta){ //carga estado subiendo o bajando o nada
+    public void applyAction(Action a,double delta){ //carga estado subiendo o bajando o nada 
         String command = a.getCommand();
         //while(){
             if(command.equals("U")){
@@ -30,7 +30,8 @@ public class Cortina {
                 System.exit(-1);
             }
         //}
-    }   
+    }
+
     public String UpdateState(){
         return "none";
     }

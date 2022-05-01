@@ -54,9 +54,9 @@ public class Operador {
                                 lc.controlarLamp(accion,delta);
                             }
                         }                                    
-
                     }
-                    else if(accion.getClase().equals("C")){                                     //se ve si la accion corresponde a C de cortinas para accionar.
+                    else if(accion.getClase().equals("C")){
+                        String state = accion.getCommand();
                         for(CortinaControl cc : ctrlesCort){
                             if(cc.getChannel() == accion.getCanal()){
                                 cc.conectAction(accion, delta);
@@ -67,7 +67,6 @@ public class Operador {
                     // que todas las cortinas se actualicen.
                     time+=delta;
                     System.out.print(String.format("%.1f",time)+"\t"+cortinas.getStatus()+lamps.getStatus()+"\n");
-
                 }
             }
         }
