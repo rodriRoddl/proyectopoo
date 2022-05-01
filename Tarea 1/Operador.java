@@ -20,7 +20,7 @@ public class Operador {
         }
     }
 
-    public double aprox(double n){
+    public double aprox(double n){ //uso de este método por evitar errores en el output del csv para el tiempo
         if(n>=10){
             double div = n/2;
             String num = String.format("%.1f",div);
@@ -83,13 +83,12 @@ public class Operador {
                     }
                 }
                 System.out.print(String.format("%.1f",time)+"\t"+cortinas.getStatus()+lamps.getStatus()+"\n");
-                time=aprox(time);
+                time = aprox(time);
                 time+=delta;
             }
         }
     }
-    //public void getList(){System.out.println(data);}  //esto retorna la lista de listas del txt.
-    
+    //atributos
     private List<List<String>> data;
     private String stateCort;
     private List<LampControl> ctrleslamp;
