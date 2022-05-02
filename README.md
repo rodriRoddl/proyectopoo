@@ -39,4 +39,4 @@ Al momento de ejecutarse el programa, éste leera el archivo de texto, aplicando
             
 - Ejecutar el programa: 
 
-      java MainEvent.java "ztext.txt"
+      java MainEvent.java "ztext.txt">"salida.csv"
