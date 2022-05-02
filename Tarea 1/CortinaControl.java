@@ -11,7 +11,7 @@ public class CortinaControl{
         cloud.startAction(channel, delta);
     }
         public void saveState(String state) {
-        cloud.saveStatus(channel,state);
+        cloud.saveStatus(state);
     }
     //atributos
     private int channel;

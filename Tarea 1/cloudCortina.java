@@ -27,11 +27,9 @@ public class cloudCortina extends cloud{
             }
         }
     }
-    public void saveStatus(int channel, String state) { //guarda la accion que se le otorgo en la lista a traves del tiempo
+    public void saveStatus(String state) { //guarda la accion que se le otorgo en la lista a traves del tiempo
         for(Cortina cort: cortinas){
-            if(cort.getCanal() == channel){
-                cort.saveState(state);
-            }
+            cort.saveState(state);
         }
     }
     

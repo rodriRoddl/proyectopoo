@@ -16,13 +16,13 @@ public class Cortina {
                 length = 0.0;
             }
         }
-        if(status.equals("D")){
+        else if(status.equals("D")){
             length += this.increment(delta);
             if(length > maxLength){
                 length = maxLength;
             }
         }
-        if(status.equals("S")){
+        else if(status.equals("S")){
         }
     }
 
