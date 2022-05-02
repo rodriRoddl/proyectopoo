@@ -70,6 +70,29 @@ public class Operador {
                 time+=delta;
             }
         }
+        Action accion = new Action(data.get(data.size()-2)); //aplicar ultima accion 0,1 seg
+        System.out.println("DATOS: "+data.get(data.size()-2));
+        if(accion.getClase().equals("L")){
+            for(LampControl lc : ctrleslamp){
+                if(lc.getChannel() == accion.getCanal()){
+                    if(lc.getStateLamp().equals("0\t0\t0") && (data.get(data.size()-2).get(3)).equals("N")){
+                        lc.pressPower();
+                    }
+                    else{
+                        lc.controlarLamp(accion);
+                    }
+                }
+            }
+        }
+        else if(accion.getClase().equals("C")){
+            stateCort = accion.getCommand();
+            for(CortinaControl cc : ctrlesCort){
+                if(cc.getChannel() == accion.getCanal()){
+                    cc.saveState(stateCort);
+                    cc.conectAction(delta);
+                }
+            }
+        }
         System.out.print(String.format("%.1f",time)+"\t"+cortinas.getStatus()+lamps.getStatus()+"\n");
     }
     //atributos
