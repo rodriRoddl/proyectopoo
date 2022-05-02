@@ -75,8 +75,10 @@ public class Operador {
                 if(accion.getClase().equals("C")){
                     stateCort = (String) accion.getCommand();
                 }
-                cortinas.saveStatus(stateCort);
                 for(CortinaControl cc : ctrlesCort){
+                    if(cc.getChannel() == accion.getCanal()){
+                        cortinas.saveStatus(stateCort);
+                    }
                     cc.conectAction(delta);
                 }
                 System.out.print(String.format("%.1f",time)+"\t"+cortinas.getStatus()+lamps.getStatus()+"\n");
