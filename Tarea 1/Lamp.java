@@ -42,26 +42,26 @@ public class Lamp{
 
 	public void applyAction(Action a){
 			if((a.getCommand()).equals("R")){
-				if((a.getUpDown()).equals("U") && red<=255){
+				if((a.getUpDown()).equals("U") && (red+5)<=255){
 					red+=5;
 				}
-				else if((a.getUpDown()).equals("D") && red>=0){
+				else if((a.getUpDown()).equals("D") && (red-5)>=0){
 					red-=5;
 				}
 			}
 			else if((a.getCommand()).equals("G")){
-				if((a.getUpDown()).equals("U") && green<=255){
+				if((a.getUpDown()).equals("U") && (green+5)<=255){
 					green+=5;
 				}
-				else if((a.getUpDown()).equals("D") && green>=0){
+				else if((a.getUpDown()).equals("D") && (green-5)>=0){
 					green-=5;
 				}
 			}
 			else if((a.getCommand()).equals("B")){
-				if((a.getUpDown()).equals("U") && blue<=255){
+				if((a.getUpDown()).equals("U") && (blue+5)<=255){
 					blue+=5;
 				}
-				else if((a.getUpDown()).equals("D") && blue>=0){
+				else if((a.getUpDown()).equals("D") && (blue-5)>=0){
 					blue-=5;
 				}
 			}
