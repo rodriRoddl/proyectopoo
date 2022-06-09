@@ -17,7 +17,7 @@ public class LampView extends Group {
                 27d, 50d,
                 22d, 50d,
                 22d, 20d);
-        base.setFill(Color.GREEN);
+        base.setFill(Color.BLACK);
         lampshade = new Polygon();
         lampshade.getPoints().addAll(
                 0d,20d,

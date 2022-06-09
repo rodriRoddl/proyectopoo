@@ -26,13 +26,12 @@ public class ShadeControlView extends BorderPane {
         });
         nextChannel.setOnAction(e->{
             ActualChannel = Integer.parseInt(channelButton.getText());
-            //if(ActualChannel<=10)shadeControl.setChannel(ActualChannel+1);
+            if(ActualChannel<10)shadeControl.setChannel(ActualChannel+1);
             channelButton.setText(""+ shadeControl.getChannel());
         });
         prevChannel.setOnAction(e->{
-            System.out.println(channelButton.getText());
             ActualChannel = Integer.parseInt(channelButton.getText());
-            //if(ActualChannel>=0) shadeControl.setChannel(ActualChannel-1);red
+            if(ActualChannel>0) shadeControl.setChannel(ActualChannel-1);
             channelButton.setText(""+ shadeControl.getChannel());
         });
         setLeft(prevChannel);

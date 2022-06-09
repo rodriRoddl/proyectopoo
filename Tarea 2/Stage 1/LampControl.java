@@ -14,6 +14,15 @@ public class LampControl {
     public int getChannel(){
         return channel;
     }
+    public void changeRed(short r){
+        cloud.changeRed(r,channel);
+    }
+    public void changeGreen(short g){
+        cloud.changeGreen(g,channel);
+    }
+    public void changeBlue(short b){
+        cloud.changeBlue(b,channel);
+    }
     public void setChannel(int channel){
         this.channel = channel;
     }

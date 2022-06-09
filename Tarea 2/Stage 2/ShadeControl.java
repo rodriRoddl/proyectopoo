@@ -19,6 +19,9 @@ public class ShadeControl extends DomoticDeviceControl{
     public void stop(){
         cloud.stopShade(channel);
     }
+    public int getChannel(){
+        return channel;
+    }
     public void setChannel(int channel){ this.channel = channel;}
     private ShadeControlView view;
     private int channel;

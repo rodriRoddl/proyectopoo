@@ -5,10 +5,7 @@ import javafx.scene.Node;
 public class Lamp {
     public Lamp (int channel){
         this.channel= channel;
-        r=30;
-        g= 50;
-        b= 255;
-        //r = g = b = 255
+        r = g = b = 255;
         state = LampState.OFF;
         view = new LampView();
     }
@@ -19,6 +16,22 @@ public class Lamp {
         state = state==LampState.ON ? LampState.OFF : LampState.ON;
         if (state==LampState.OFF) view.setColor((short)0,(short)0, (short)0);
         else view.setColor(r,g,b);
+    }
+    public void changeRed(short r){
+        if(state==LampState.ON) {
+            this.r = r;
+            view.setColor(r,g,b);};
+    }
+    public void changeGreen(short g){
+        if(state==LampState.ON){
+            this.g = g;
+            view.setColor(r,g,b);
+        };
+    }
+    public void changeBlue(short b){
+        if(state==LampState.ON) {
+            this.b = b;
+            view.setColor(r,g,b);};
     }
     public Node getView() {
         return view;

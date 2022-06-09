@@ -18,6 +18,18 @@ public class Cloud {
         Lamp l=getLampAtChannel(channel);
         if (l != null) l.changePowerState();
     }
+    public void changeRed(short r, int channel){
+        Lamp l=getLampAtChannel(channel);
+        if (l != null) l.changeRed(r);
+    }
+    public void changeGreen(short g,int channel){
+        Lamp l=getLampAtChannel(channel);
+        if (l != null) l.changeGreen(g);
+    }
+    public void changeBlue(short b,int channel){
+        Lamp l=getLampAtChannel(channel);
+        if (l != null) l.changeBlue(b);
+    }
     private ArrayList<Lamp> lamps;
 }
 

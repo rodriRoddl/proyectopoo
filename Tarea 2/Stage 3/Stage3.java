@@ -19,6 +19,7 @@ public class Stage3 extends Application {
         hBox.setPadding(new Insets(40));
         hBox.setAlignment(Pos.CENTER);
         hBox.getChildren().addAll(lamp.getView(), lampControl.getView());
+        hBox.setFillHeight(false);
         BorderPane pane = new BorderPane();
         pane.setPadding(new Insets(100));
         pane.setBottom(hBox);
@@ -28,7 +29,7 @@ public class Stage3 extends Application {
         pane.setCenter(rs.getView());
         ShadeControl shadeControl = new ShadeControl(shadeChannel,cloud);
         hBox.getChildren().add(0,shadeControl.getView());
-        Scene scene = new Scene(pane, 300, 350);
+        Scene scene = new Scene(pane, 650, 600);
         primaryStage.setTitle("Domotic Devices Simulator");
         primaryStage.setScene(scene);
         primaryStage.show();
