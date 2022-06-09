@@ -1,4 +1,3 @@
-package com.example.stage3;
 import java.util.ArrayList;
 public class Cloud {
     public Cloud() {
