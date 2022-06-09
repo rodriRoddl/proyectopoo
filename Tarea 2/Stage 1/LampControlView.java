@@ -8,7 +8,7 @@ import javafx.scene.layout.VBox;
 
 public class LampControlView extends VBox {
     public LampControlView(LampControl lampControl) {
-        Image img = new Image("D:\\rodri\\MATERIA 2022-1\\intellijproyectos\\Stage1FX\\src\\main\\java\\com\\example\\stage1fx\\powerImage.jpg");
+        Image img = new Image("powerImage.jpg");
         ImageView button = new ImageView(img);
         control = lampControl;
         Spinner spinner = new Spinner(0,10,0);
