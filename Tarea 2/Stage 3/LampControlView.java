@@ -19,8 +19,10 @@ public class LampControlView extends VBox {
         Slider sliderBlue = new Slider(0,255,1);
         sliderBlue.setShowTickMarks(true);
         button.setOnMouseClicked(e-> {
-            control.setChannel((int) spinner.getValue());
             control.pressPower();
+        });
+        spinner.setOnMouseClicked(e->{
+            control.setChannel((int) spinner.getValue());
         });
         sliderRed.setOnMouseDragged(e->{
             r = (short) sliderRed.getValue();
