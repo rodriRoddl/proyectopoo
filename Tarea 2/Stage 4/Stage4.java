@@ -1,3 +1,4 @@
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -6,7 +7,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-public class Stage2 extends Application {
+public class Stage4 extends Application {
     public void start(Stage primaryStage) {
         int lampChannel=1;
         Cloud cloud = new Cloud();
@@ -16,7 +17,6 @@ public class Stage2 extends Application {
         HBox hBox = new HBox(20);
         hBox.setPadding(new Insets(20));
         hBox.setAlignment(Pos.CENTER);
-        //hBox.getChildren().addAll(lamp.getView(), lampControl.getView());
         BorderPane pane = new BorderPane();
         pane.setPadding(new Insets(20));
         pane.setBottom(hBox);
@@ -26,7 +26,7 @@ public class Stage2 extends Application {
         pane.setCenter(rs.getView());
         ShadeControl shadeControl = new ShadeControl(shadeChannel,cloud);
         hBox.getChildren().add(0,shadeControl.getView());
-        Scene scene = new Scene(pane, 300, 350);
+        Scene scene = new Scene(pane, 450, 550);
         primaryStage.setTitle("Domotic Devices Simulator");
         primaryStage.setScene(scene);
         primaryStage.show();

@@ -1,5 +1,3 @@
-package com.example.stage1fx;
-
 import javafx.scene.layout.Pane;
 
 public class LampControl {

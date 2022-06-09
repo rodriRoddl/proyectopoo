@@ -1,3 +1,5 @@
+
+
 public class Lamp {
     public Lamp (int channel){
         this.channel= channel;

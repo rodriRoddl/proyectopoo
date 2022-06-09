@@ -1,4 +1,3 @@
-package com.example.stage1fx;
 
     /* We have not studied enum type. An enum type is a
        special data type that enables for

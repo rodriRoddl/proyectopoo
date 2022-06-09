@@ -1,3 +1,5 @@
+
+
 public class DomoticDeviceControl {
     public DomoticDeviceControl(int ch, Cloud c){
         channel = ch;

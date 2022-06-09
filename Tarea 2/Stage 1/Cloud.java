@@ -1,4 +1,3 @@
-package com.example.stage1fx;
 import java.util.ArrayList;
 
 public class Cloud {

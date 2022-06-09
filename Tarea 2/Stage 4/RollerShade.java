@@ -1,4 +1,5 @@
 
+
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -13,7 +14,7 @@ public class RollerShade extends DomoticDevice {
         motor = new Motor(alpha);
         MaxShadeLength = len;
         this.length = 0;  // Start with roller shade open.
-        view = new RollerShadeView(MaxShadeLength, width, length, RADIUS, Color.GREEN);
+        view = new RollerShadeView(MaxShadeLength, width, RADIUS, Color.GREEN);
     }
     public Group getView() { return view;}
     public void startUp(){

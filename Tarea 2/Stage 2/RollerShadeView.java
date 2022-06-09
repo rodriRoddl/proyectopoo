@@ -1,4 +1,3 @@
-package com.example.stage2;
 
 import javafx.scene.Group;
 import javafx.scene.paint.Color;

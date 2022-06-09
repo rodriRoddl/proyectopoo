@@ -1,5 +1,3 @@
-package com.example.stage1fx;
-
 import javafx.scene.control.Slider;
 import javafx.scene.control.Spinner;
 import javafx.scene.image.Image;
