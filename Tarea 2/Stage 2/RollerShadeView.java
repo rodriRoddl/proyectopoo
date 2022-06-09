@@ -28,8 +28,7 @@ public class RollerShadeView extends Group {
         getChildren().addAll(leftSide,rightSide,roller);
     }
     public void setLength(double length){
-            cloth.setHeight(length);
-        // ¿?
+            cloth.setHeight(maxLength-length);
     }
     private Rectangle cloth;
     private final double maxLength;

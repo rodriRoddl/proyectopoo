@@ -6,7 +6,7 @@ import javafx.scene.layout.BorderPane;
 
 public class ShadeControlView extends BorderPane {
     public ShadeControlView (ShadeControl sc){
-        ShadeControl shadeControl = sc;
+        shadeControl = sc;
         Button channelButton = new Button(""+sc.getChannel());
         Button upButton = new Button("➤");
         upButton.setRotate(270);
@@ -24,6 +24,17 @@ public class ShadeControlView extends BorderPane {
         downButton.setOnAction(e->{
             shadeControl.startDown();
         });
+        nextChannel.setOnAction(e->{
+            ActualChannel = Integer.parseInt(channelButton.getText());
+            //if(ActualChannel<=10)shadeControl.setChannel(ActualChannel+1);
+            channelButton.setText(""+ shadeControl.getChannel());
+        });
+        prevChannel.setOnAction(e->{
+            System.out.println(channelButton.getText());
+            ActualChannel = Integer.parseInt(channelButton.getText());
+            //if(ActualChannel>=0) shadeControl.setChannel(ActualChannel-1);red
+            channelButton.setText(""+ shadeControl.getChannel());
+        });
         setLeft(prevChannel);
         setRight(nextChannel);
         setCenter(channelButton);
@@ -32,4 +43,6 @@ public class ShadeControlView extends BorderPane {
         setAlignment(upButton, Pos.TOP_CENTER);
         setAlignment(downButton, Pos.BOTTOM_CENTER);
     }
+    private int ActualChannel;
+    private ShadeControl shadeControl;
 }
