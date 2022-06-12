@@ -40,11 +40,13 @@ En el caso de sistemas operativos basados en Linux, podemos:
             
  - Acceder a la ubicación dónde se encuentre el archivo (cd /(ubcación de la carpeta).
             
- - Compilar el programa de la siguiente manera para Stage 1 o 3:
+ - Compilar el programa de la siguiente manera:
+ 
+Para Stage 1 o 3:
 	    
        javac Cloud.java Lamp.java LampControl.java LampControlView.java LampState.java LampView.java StageX.java
        
-O de la siguiente otra forma para Stage 2 o 4:
+Para Stage 2 o 4:
    
 	javac Cloud.java DomoticDevice.java DomoticDeviceControl.java Lamp.java LampControl.java LampState.java RollerShade.java RollerShadeView.java ShadeControl.java ShadeControlView.java StageX.java
             
