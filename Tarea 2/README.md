@@ -48,14 +48,14 @@ Para Stage 1 o 3:
        
 Para Stage 2 o 4:
    
-	javac Cloud.java DomoticDevice.java DomoticDeviceControl.java Lamp.java LampControl.java LampState.java RollerShade.java RollerShadeView.java ShadeControl.java ShadeControlView.java StageX.java
+	  javac Cloud.java DomoticDevice.java DomoticDeviceControl.java Lamp.java LampControl.java LampState.java RollerShade.java RollerShadeView.java ShadeControl.java ShadeControlView.java StageX.java
             
 - Ejecutar el programa: 
 
-      java StageX
+	  java StageX
       
 _(Notar que tanto para compilación como ejecución se debe reemplazar la "X" por el número de Stage correspondiente)._
 
 La otra alternativa sería hacer uso de los _Makefile_ entregados por cada stage, a través de la siguiente linea comando:
 
-	make javaFX= "ruta de javasdk\lib"
+	  make javaFX= "ruta de javasdk\lib"
